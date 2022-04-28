@@ -1,15 +1,20 @@
-public class Graph<E>
+package GraphPackage;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import ADTPackage.*; // Classes that implement various ADTs
+
+public class Graph<T>
 {
     private boolean[][] edges; // edges[i][j] is true if there is a vertex from i to j
-    private E[] labels; // labels[i] contains the label for vertex i  
+    private T[] labels; // labels[i] contains the label for vertex i  
 
     public Graph(int n) {
         edges = new boolean[n][n]; // All values initially false
-        labels = (E[]) new Object[n]; // All values initially null
+        labels = (T[]) new Object[n]; // All values initially null
     }
 
     //Accessor method to get the label of a vertex of this Graph
-    public E getLabel(int vertex) {
+    public T getLabel(int vertex) {
         return labels[vertex];
     }
 
@@ -18,12 +23,12 @@ public class Graph<E>
         return edges[source][target];
     }
 
-    //Add an edge
+    // Add an edge
     public void addEdge(int source, int target) {
         edges[source][target] = true;
     }
 
-    //Obtain a list of neighbors of a specified vertex of this Graph
+    // Obtain a list of neighbors of a specified vertex of this Graph
     public int[] neighbors(int vertex) {
         int i;
         int count = 0;
@@ -46,7 +51,7 @@ public class Graph<E>
         edges[source][target] = false;
     }
 
-    //Change the label of a vertex of this Graph
+    // Change the label of a vertex of this Graph
     public void setLabel(int vertex, E newLabel) {
         labels[vertex] = newLabel;
     }
@@ -58,7 +63,6 @@ public class Graph<E>
 
     public QueueInterface<T> getBreadthFirstTraversal(T origin)
     {
-       resetVertices();
        QueueInterface<T> traversalOrder = new LinkedQueue<T>();
        QueueInterface<VertexInterface<T>> vertexQueue =
                                           new LinkedQueue<VerteInterface<T>>();
@@ -92,7 +96,6 @@ public class Graph<E>
     public QueueInterface<T> getDepthFirstTraversal(T origin)
     {
         // Assumes graph is not empty
-        resetVertices();
         QueueInterface<T> traversalOrder = new LinkedQueue<T>();
         StackInterface<VertexInterface<T>> vertexStack = new LinkedStack<>();
 
