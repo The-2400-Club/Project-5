@@ -1,4 +1,7 @@
 package GraphPackage;
+
+import java.util.Iterator;
+
 /**
    An interface of methods that create, manipulate, and process a graph.
    
@@ -9,4 +12,8 @@ package GraphPackage;
 public interface GraphInterface<T> extends BasicGraphInterface<T>, 
                                            GraphAlgorithmsInterface<T>
 {
+   public QueueInterface<T> getBreadthFirstTraversal(T origin);
+
+   public QueueInterface<T> getDepthFirstTraversal(T origin);
+
 } // end GraphInterface
