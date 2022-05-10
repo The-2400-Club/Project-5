@@ -52,7 +52,7 @@ public class AdjMatrixGraph
 
     public void resetVisitedArray()
     {
-        for(int i = 0; i < vertices; i++)
+        for(int i = 0; i < visited.length; i++)
         {
             visited[i] = false;
         }
@@ -113,17 +113,5 @@ public class AdjMatrixGraph
         resetVisitedArray();
         return traversal;
     } //end getDepthFirstTraversal
-
-    public void printGraph()
-    {
-        for(int i = 0; i < vertices; i++)
-        {
-            for(int j = 0; j < vertices; j++)
-            {
-                System.out.print(edges[i][j] + " ");
-            }
-            System.out.println("");
-        }
-    }
 
 }
